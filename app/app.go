@@ -58,5 +58,8 @@ type RequestHandlerFunction func(w http.ResponseWriter, r *http.Request)
 func (a *App) handleRequest(handler RequestHandlerFunction) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		handler(w, r)
+
+
+		
 	}
 }
