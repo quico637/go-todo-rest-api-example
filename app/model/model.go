@@ -1,9 +1,5 @@
 package model
 
-import (
-	"time"
-)
-
 type Project struct {
 	Title    string `json:"title"`
 	Description string `json:"description"`

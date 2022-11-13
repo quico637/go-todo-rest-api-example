@@ -1,13 +1,11 @@
 package app
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
 	"github.com/quico637/go-todo-rest-api-example/app/handler"
-	"github.com/quico637/go-todo-rest-api-example/app/model"
 )
 
 // App has router and db instances
@@ -55,10 +53,10 @@ func (a *App) Run(host string) {
 	log.Fatal(http.ListenAndServe(host, a.Router))
 }
 
-type RequestHandlerFunction func(db *gorm.DB, w http.ResponseWriter, r *http.Request)
+type RequestHandlerFunction func(w http.ResponseWriter, r *http.Request)
 
 func (a *App) handleRequest(handler RequestHandlerFunction) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		handler(a.DB, w, r)
+		handler(w, r)
 	}
 }

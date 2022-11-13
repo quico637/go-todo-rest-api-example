@@ -8,11 +8,11 @@ import (
 )
 
 func GetAllProjects(w http.ResponseWriter, r *http.Request) {
-	projects := []model.Project{"hola", "adios", true}
+	projects := model.Project{"hola", "adios", true}
 	respondJSON(w, http.StatusOK, projects)
 }
 
-func CreateProject(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
+func CreateProject(w http.ResponseWriter, r *http.Request) {
 	project := model.Project{}
 
 	decoder := json.NewDecoder(r.Body)
